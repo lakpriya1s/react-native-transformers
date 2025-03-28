@@ -1,0 +1,1 @@
+{"version":3,"file":"text-embedding.d.ts","sourceRoot":"","sources":["../../../src/models/text-embedding.tsx"],"names":[],"mappings":"AAAA,OAAO,wBAAwB,CAAC;AAEhC,OAAO,EAAE,IAAI,EAAE,MAAM,QAAQ,CAAC;AAE9B;;GAEG;AACH,qBAAa,aAAc,SAAQ,IAAI;IACrC;;;;;OAKG;IACU,KAAK,CAAC,MAAM,EAAE,MAAM,EAAE,GAAG,OAAO,CAAC,YAAY,CAAC;CA8C5D"}

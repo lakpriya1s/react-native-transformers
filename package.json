@@ -17,7 +17,6 @@
     "example": "yarn workspace react-native-transformers-example",
     "test": "jest --coverage",
     "lint": "eslint . --fix",
-    "prepare": "bob build",
     "release": "release-it",
     "docs": "typedoc src/index.tsx"
   },
