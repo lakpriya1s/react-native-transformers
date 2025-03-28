@@ -48,6 +48,7 @@ Link the `onnxruntime-react-native` library:
 ```sh
 npx react-native link onnxruntime-react-native
 ```
+
 </details>
 
 <details>
@@ -58,12 +59,11 @@ Add the Expo plugin configuration in `app.json` or `app.config.js`:
 ```json
 {
   "expo": {
-    "plugins": [
-      "onnxruntime-react-native"
-    ]
+    "plugins": ["onnxruntime-react-native"]
   }
 }
 ```
+
 </details>
 
 ### 4. Babel Configuration
@@ -76,8 +76,8 @@ module.exports = {
   // ... your existing config
   plugins: [
     // ... your existing plugins
-    "babel-plugin-transform-import-meta"
-  ]
+    "babel-plugin-transform-import-meta",
+  ],
 };
 ```
 
@@ -91,7 +91,6 @@ You can set up a development client using one of these methods:
 
 - **[EAS Development Build](https://docs.expo.dev/develop/development-builds/introduction/)**: Create a custom development client using EAS Build
 - **[Expo Prebuild](https://docs.expo.dev/workflow/prebuild/)**: Eject to a bare workflow to access native code
-
 
 ## Usage
 
@@ -125,8 +124,8 @@ export default function App() {
             // In a real app, you might want to cache the downloaded files
             const response = await fetch(url);
             return response.url;
-          }
-        }
+          },
+        },
       );
       setIsModelReady(true);
     } catch (error) {
@@ -142,7 +141,7 @@ export default function App() {
     // Generate text from the prompt and update the UI as tokens are generated
     Pipeline.TextGeneration.generate(
       "Write a short poem about programming:",
-      (text) => setOutput(text)
+      (text) => setOutput(text),
     );
   };
 
@@ -187,14 +186,17 @@ await Pipeline.TextGeneration.init("model-repo", "model-file", {
       localPath,
       {},
       (progress) => {
-        const percentComplete = progress.totalBytesWritten / progress.totalBytesExpectedToWrite;
-        console.log(`Download progress: ${(percentComplete * 100).toFixed(1)}%`);
-      }
+        const percentComplete =
+          progress.totalBytesWritten / progress.totalBytesExpectedToWrite;
+        console.log(
+          `Download progress: ${(percentComplete * 100).toFixed(1)}%`,
+        );
+      },
     );
 
     const result = await downloadResumable.downloadAsync();
     return result?.uri;
-  }
+  },
 });
 ```
 
@@ -202,13 +204,13 @@ await Pipeline.TextGeneration.init("model-repo", "model-file", {
 
 `react-native-transformers` works with ONNX-formatted models from Hugging Face. Here are some recommended models based on size and performance:
 
-| Model | Type | Size | Description |
-|-------|------|------|-------------|
-| [Felladrin/onnx-Llama-160M-Chat-v1](https://huggingface.co/Felladrin/onnx-Llama-160M-Chat-v1) | Text Generation | ~300MB | Small Llama model (160M parameters) |
-| [microsoft/Phi-3-mini-4k-instruct-onnx-web](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx-web) | Text Generation | ~1.5GB | Microsoft's Phi-3-mini model |
-| [Xenova/distilgpt2_onnx-quantized](https://huggingface.co/Xenova/distilgpt2_onnx-quantized) | Text Generation | ~165MB | Quantized DistilGPT-2 |
-| [Xenova/tiny-mamba-onnx](https://huggingface.co/Xenova/tiny-mamba-onnx) | Text Generation | ~85MB | Tiny Mamba model |
-| [Xenova/all-MiniLM-L6-v2-onnx](https://huggingface.co/Xenova/all-MiniLM-L6-v2-onnx) | Text Embedding | ~80MB | Sentence embedding model |
+| Model                                                                                                         | Type            | Size   | Description                         |
+| ------------------------------------------------------------------------------------------------------------- | --------------- | ------ | ----------------------------------- |
+| [Felladrin/onnx-Llama-160M-Chat-v1](https://huggingface.co/Felladrin/onnx-Llama-160M-Chat-v1)                 | Text Generation | ~300MB | Small Llama model (160M parameters) |
+| [microsoft/Phi-3-mini-4k-instruct-onnx-web](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx-web) | Text Generation | ~1.5GB | Microsoft's Phi-3-mini model        |
+| [Xenova/distilgpt2_onnx-quantized](https://huggingface.co/Xenova/distilgpt2_onnx-quantized)                   | Text Generation | ~165MB | Quantized DistilGPT-2               |
+| [Xenova/tiny-mamba-onnx](https://huggingface.co/Xenova/tiny-mamba-onnx)                                       | Text Generation | ~85MB  | Tiny Mamba model                    |
+| [Xenova/all-MiniLM-L6-v2-onnx](https://huggingface.co/Xenova/all-MiniLM-L6-v2-onnx)                           | Text Embedding  | ~80MB  | Sentence embedding model            |
 
 ## API Reference
 
@@ -229,7 +231,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgements
 
 - [ONNX Runtime](https://onnxruntime.ai/) for efficient model execution on mobile devices
-- [@xenova/transformers](https://www.npmjs.com/package/@xenova/transformers) for transformer model implementations
+- [@huggingface/transformers](https://www.npmjs.com/package/@huggingface/transformers) for transformer model implementations
 - [Hugging Face](https://huggingface.co/) for providing pre-trained models and model hosting
 
 ## External Links

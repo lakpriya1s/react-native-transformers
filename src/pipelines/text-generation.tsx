@@ -1,4 +1,8 @@
-import { env, AutoTokenizer, PreTrainedTokenizer } from "@xenova/transformers";
+import {
+  env,
+  AutoTokenizer,
+  PreTrainedTokenizer,
+} from "@huggingface/transformers";
 import { TextGeneration as Model } from "../models/text-generation";
 import { LoadOptions } from "../models/base";
 

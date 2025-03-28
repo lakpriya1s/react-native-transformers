@@ -19,7 +19,7 @@ const createCallableTokenizer = () => {
   return tokenizer;
 };
 
-jest.mock("@xenova/transformers", () => ({
+jest.mock("@huggingface/transformers", () => ({
   env: {
     allowRemoteModels: true,
     allowLocalModels: false,

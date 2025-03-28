@@ -1,8 +1,8 @@
 import TextGenerationPipeline from "../pipelines/text-generation";
-import type { PreTrainedTokenizer } from "@xenova/transformers";
+import type { PreTrainedTokenizer } from "@huggingface/transformers";
 
 // Mock the transformers library
-jest.mock("@xenova/transformers", () => {
+jest.mock("@huggingface/transformers", () => {
   // Create a mock tokenizer function with the correct type
   const mockTokenizerFn = Object.assign(
     jest
@@ -53,7 +53,7 @@ describe("TextGenerationPipeline", () => {
     it("should initialize with default options", async () => {
       await TextGenerationPipeline.init("test-model", "test-path");
       expect(
-        require("@xenova/transformers").AutoTokenizer.from_pretrained,
+        require("@huggingface/transformers").AutoTokenizer.from_pretrained,
       ).toHaveBeenCalledWith("test-model");
     });
 
@@ -63,7 +63,7 @@ describe("TextGenerationPipeline", () => {
         max_tokens: 100,
       });
       expect(
-        require("@xenova/transformers").AutoTokenizer.from_pretrained,
+        require("@huggingface/transformers").AutoTokenizer.from_pretrained,
       ).toHaveBeenCalledWith("test-model");
     });
   });

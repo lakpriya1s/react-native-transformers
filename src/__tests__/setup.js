@@ -48,7 +48,7 @@ jest.mock("onnxruntime-react-native", () => ({
 }));
 
 // Mock transformers
-jest.mock("@xenova/transformers", () => ({
+jest.mock("@huggingface/transformers", () => ({
   env: {
     allowRemoteModels: true,
     allowLocalModels: false,

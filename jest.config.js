@@ -5,7 +5,7 @@ module.exports = {
     "node_modules/(?!(" +
       "react-native|" +
       "@react-native|" +
-      "@xenova/transformers|" +
+      "@huggingface/transformers|" +
       "text-encoding-polyfill" +
       ")/)",
   ],

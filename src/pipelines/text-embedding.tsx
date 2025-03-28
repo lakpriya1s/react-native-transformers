@@ -1,4 +1,8 @@
-import { env, AutoTokenizer, PreTrainedTokenizer } from "@xenova/transformers";
+import {
+  env,
+  AutoTokenizer,
+  PreTrainedTokenizer,
+} from "@huggingface/transformers";
 import { TextEmbedding as Model } from "../models/text-embedding";
 import { LoadOptions } from "../models/base";
 
